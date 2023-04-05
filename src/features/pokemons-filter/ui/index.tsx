@@ -1,8 +1,10 @@
 import { Select } from "antd";
 import { pokemonModel } from "entities/pokemon";
 import { changeTotalElementCount } from "entities/pokemon/model";
-import { useState } from "react";
 import { pokemonsTypeDefenition, useAppDispatch, useAppSelector } from "shared/api";
+import { CloseCircleOutlined } from "@ant-design/icons";
+
+const clearIcon = <CloseCircleOutlined style={{ fontSize: 20, margin: '-5px auto 0' }} />
 
 export const PokemonsFilter = () => {
     const { isError } = useAppSelector(state => state.pokemons)
@@ -31,6 +33,7 @@ export const PokemonsFilter = () => {
             {!isError &&
                 <Select
                     size={window.innerWidth >= 500 ? "middle" : "large"}
+                    clearIcon={clearIcon}
                     className="pokemon__select_list"
                     placeholder="Выберите тип покемона"
                     autoFocus={false}
