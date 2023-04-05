@@ -14,15 +14,13 @@ export const PokemonsFilter = () => {
     const handleChange = (value: string) => {
         if (value) {
             trigger(value)
-        } else {
-            triggerAll({ limit: 10, offset: 1 })
         }
 
         dispatch(changeTotalElementCount(0))
     }
 
     const handleClear = () => {
-        setSelectedValue('')
+        triggerAll({ limit: 10, offset: 1 })
     }
 
     const selectOptions = Object.entries(pokemonsTypeDefenition).map(([key, value]) => {
