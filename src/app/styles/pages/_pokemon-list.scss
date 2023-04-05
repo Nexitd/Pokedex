@@ -1,0 +1,19 @@
+.pokemon__list {
+    &_filters {
+        max-width: 900px;
+        margin: 5em auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+        }
+
+        .search-input {
+            @media screen and (max-width: 500px) {
+                margin-bottom: 1.5em;
+            }
+        }
+    }
+}

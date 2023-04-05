@@ -1,0 +1,49 @@
+.pokemon {
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5em 0;
+        margin: 3em 0;
+
+        &-empty {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            .ant-empty-image {
+                margin-bottom: 2em;
+            }
+
+            img {
+                width: 220px;
+                height: auto !important;
+            }
+
+            span {
+                font-size: 1.3rem;
+                font-weight: bold;
+                line-height: 1.5rem;
+            }
+        }
+
+        &_item {
+            max-width: 33%;
+            width: 33%;
+
+            * {
+                text-decoration: none;
+            }
+
+            @media screen and (max-width: 700px) {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            @media screen and (min-width: 701px) and (max-width: 1100px) {
+                max-width: 50%;
+                width: 50%;
+            }
+        }
+    }
+}

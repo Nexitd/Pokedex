@@ -1,0 +1,30 @@
+.header {
+    min-height: 10vh;
+    background-color: #fff;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    -webkit-box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+    top: 0;
+    position: sticky;
+    z-index: 100000;
+
+    @media screen and (max-width: 500px) {
+        padding: 1em;
+    }
+
+    &__container {
+        img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+
+            @media screen and (max-width: 500px) {
+                width: 100px;
+            }
+        }
+    }
+}

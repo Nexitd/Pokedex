@@ -1,0 +1,23 @@
+@import './components/index.scss';
+@import './pages/index.scss';
+@import './normalise-ant.scss';
+@import './normalize.scss';
+@import 'antd/dist/reset.css';
+
+body {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    position: relative;
+    background: #d6e4ff;
+}
+
+main {
+    min-height: 80vh;
+}
+
+.wrapper__container {
+    max-width: 1344px;
+    margin: 0 auto;
+}

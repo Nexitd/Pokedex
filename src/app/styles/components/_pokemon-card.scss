@@ -1,0 +1,27 @@
+.card {
+    height: 100%;
+    margin: 0 auto;
+    width: 360px;
+    
+    @media screen and (max-width: 500px) {
+        width: 300px;
+    }
+
+    &__title {
+        text-transform: capitalize;
+        font-size: 2rem;
+        line-height: 1.5rem;
+        text-align: center;
+        margin: 0.8em 0;
+    }
+
+    &__description {
+        margin-right: 0.8em;
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+    }
+
+    &__body {
+        font-weight: bold;
+    }
+}
