@@ -23,7 +23,6 @@ export const pokemonApi = createApi({
                     dispatch(changePokemonDataList([data]));
                 } catch {
                     dispatch(changePokemonDataList([]));
-                    dispatch(onChangeErrorValue(true));
                 }
             },
         }),

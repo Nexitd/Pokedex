@@ -3,7 +3,6 @@ import { memo, useMemo } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import nodata from "assets/nodata.jpeg"
-import loading from "assets/loading.png"
 
 type AvatarType = {
     isMale: boolean;
@@ -30,7 +29,6 @@ const Avatar = ({ isMale = false, front_default = '', front_female = '' }: Avata
         placeholder={<Skeleton />}
         style={{ minHeight: 300 }}
         src={image || nodata}
-        placeholderSrc={loading}
         alt="image"
         width={'100%'}
         effect="blur" />;
