@@ -15,7 +15,7 @@ const PokemonRow = () => {
 
 
 
-    const dataLength = useMemo(() => data.results.length, [data.results.length]);
+    const dataLength = useMemo(() => results.length, [results.length]);
 
     const changeTotalCount = () => {
         if (dataLength === 0) {
