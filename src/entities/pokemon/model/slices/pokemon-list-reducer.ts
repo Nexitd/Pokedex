@@ -14,7 +14,7 @@ const PokemonListReducer = createSlice({
     initialState: {
         results: [],
         total: 0,
-        offset: 1,
+        offset: 0,
         isError: false,
         limit: 10,
     } as pokemonsStateType,

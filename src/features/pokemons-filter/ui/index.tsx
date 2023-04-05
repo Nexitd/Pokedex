@@ -5,7 +5,6 @@ import { useState } from "react";
 import { pokemonsTypeDefenition, useAppDispatch, useAppSelector } from "shared/api";
 
 export const PokemonsFilter = () => {
-    const [selectedValue, setSelectedValue] = useState('')
     const { isError } = useAppSelector(state => state.pokemons)
     const [trigger] = pokemonModel.pokemonApi.endpoints.getPokemonsByType.useLazyQuery()
     const [triggerAll] = pokemonModel.pokemonApi.endpoints.getPokemons.useLazyQuery()
@@ -27,12 +26,14 @@ export const PokemonsFilter = () => {
         return { value: value, label: key }
     })
 
-
     return (
         <>
             {!isError &&
                 <Select
+                    size={window.innerWidth >= 500 ? "middle" : "large"}
+                    className="pokemon__select_list"
                     placeholder="Выберите тип покемона"
+                    autoFocus={false}
                     style={{ width: 250 }}
                     onChange={handleChange}
                     onClear={handleClear}

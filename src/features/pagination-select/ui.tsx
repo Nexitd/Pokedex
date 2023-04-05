@@ -18,12 +18,11 @@ const CustomPagination = () => {
     const handeChangePage = (current: number) => {
         setCurrent(current)
 
-        dispatch(pokemonModel.onChangeOffsetSize(current))
+        dispatch(pokemonModel.onChangeOffsetSize((current - 1) * limit))
     }
 
     return <>
-
-        {total !== 0 && <div className="pagination__container">
+        {total > 1 && <div className="pagination__container">
             <Pagination
                 size="default"
                 showSizeChanger
