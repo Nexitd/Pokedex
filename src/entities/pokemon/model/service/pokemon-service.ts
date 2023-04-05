@@ -5,7 +5,7 @@ import { API_URL } from 'shared/config';
 
 export const pokemonApi = createApi({
     reducerPath: 'pokemonApi',
-    baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}/api/v2/` }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}` }),
     tagTypes: ['Pokemons'],
     endpoints: (builder) => ({
         getPokemonByName: builder.query<Pokemon, string>({
