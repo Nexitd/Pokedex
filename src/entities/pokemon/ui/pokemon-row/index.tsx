@@ -41,7 +41,7 @@ const PokemonRow = () => {
                 {isError && <Error description='Произошла ошибка при загрузке данных' />}
                 <ErrorBoundary fallback={<Error description='Произошла непредвиденная ошибка, обратитесть в тех. поддержку' />}>
                     <div className="pokemon__container">
-                        {dataLength !== 0 && !isError ? results.map((el, i) => {
+                        {dataLength !== 0 ? results.map((el, i) => {
                             return <div key={i} className="pokemon__container_item">
                                 <PokemonCard name={el.name} />
                             </div>
