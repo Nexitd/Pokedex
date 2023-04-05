@@ -16,7 +16,7 @@ export const PokemonsSearch = () => {
         }
 
         if (!debauncedSearchName && !searchName) {
-            triggerAll({ limit: 10, offset: 1 })
+            triggerAll({ limit: 10, offset: 0 })
         }
     }
 

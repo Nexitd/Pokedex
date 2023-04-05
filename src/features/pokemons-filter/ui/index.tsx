@@ -21,7 +21,7 @@ export const PokemonsFilter = () => {
     }
 
     const handleClear = () => {
-        triggerAll({ limit: 10, offset: 1 })
+        triggerAll({ limit: 10, offset: 0 })
     }
 
     const selectOptions = Object.entries(pokemonsTypeDefenition).map(([key, value]) => {
