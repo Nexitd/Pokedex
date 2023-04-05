@@ -1,9 +1,10 @@
 import { Select } from "antd";
 import { pokemonModel } from "entities/pokemon";
 import { changeTotalElementCount } from "entities/pokemon/model";
-import { pokemonsTypeDefenition, useAppDispatch } from "shared/api";
+import { pokemonsTypeDefenition, useAppDispatch, useAppSelector } from "shared/api";
 
 export const PokemonsFilter = () => {
+    const { isError } = useAppSelector(state => state.pokemons)
     const [trigger] = pokemonModel.pokemonApi.endpoints.getPokemonsByType.useLazyQuery()
     const [triggerAll] = pokemonModel.pokemonApi.endpoints.getPokemons.useLazyQuery()
     const dispatch = useAppDispatch()
@@ -24,13 +25,17 @@ export const PokemonsFilter = () => {
 
 
     return (
-        <Select
-            placeholder="Выберите тип покемона"
-            style={{ width: 250 }}
-            onChange={handleChange}
-            allowClear={true}
-            options={selectOptions}
-        />
+        <>
+            {!isError &&
+                <Select
+                    placeholder="Выберите тип покемона"
+                    style={{ width: 250 }}
+                    onChange={handleChange}
+                    allowClear={true}
+                    options={selectOptions}
+                />
+            }
+        </>
     )
 }
 

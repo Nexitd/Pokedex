@@ -4,6 +4,7 @@ import { PokemonListResult } from 'shared/api';
 type pokemonsStateType = {
     total: number;
     limit: number;
+    isError: boolean;
     offset: number;
     results: PokemonListResult[];
 };
@@ -14,11 +15,16 @@ const PokemonListReducer = createSlice({
         results: [],
         total: 0,
         offset: 1,
+        isError: false,
         limit: 10,
     } as pokemonsStateType,
     reducers: {
         onChangeLimit: (state, { payload }: PayloadAction<number>) => {
             state.limit = payload;
+        },
+
+        onChangeErrorValue: (state, { payload }: PayloadAction<boolean>) => {
+            state.isError = payload;
         },
 
         onChangeOffsetSize: (state, { payload }: PayloadAction<number>) => {
@@ -37,6 +43,7 @@ const PokemonListReducer = createSlice({
 
 export const {
     onChangeLimit,
+    onChangeErrorValue,
     changeTotalElementCount,
     onChangeOffsetSize,
     changePokemonDataList,

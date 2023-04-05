@@ -39,14 +39,13 @@ const PokemonRow = () => {
             <section className="wrapper__container">
                 {isFetching && <Spin />}
                 {isError && <Error description='Произошла ошибка при загрузке данных' />}
-                {(dataLength === 0 && !isFetching) && <Empty className='pokemon__container-empty' />}
                 <ErrorBoundary fallback={<Error description='Произошла непредвиденная ошибка, обратитесть в тех. поддержку' />}>
                     <div className="pokemon__container">
-                        {dataLength !== 0 && results.map((el, i) => {
+                        {dataLength !== 0 ? results.map((el, i) => {
                             return <div key={i} className="pokemon__container_item">
                                 <PokemonCard name={el.name} />
                             </div>
-                        })}
+                        }) : <Empty className='pokemon__container-empty' />}
                     </div>
                 </ErrorBoundary>
             </section>

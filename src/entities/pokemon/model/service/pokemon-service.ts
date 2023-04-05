@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { changePokemonDataList, onChangeErrorValue } from '../slices/pokemon-list-reducer';
 import { Pokemon, PokemonList } from 'shared/api';
-import { changePokemonDataList } from '../slices/pokemon-list-reducer';
+import { API_URL } from 'shared/config';
 
 export const pokemonApi = createApi({
     reducerPath: 'pokemonApi',
-    baseQuery: fetchBaseQuery({ baseUrl: '/api/v2/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}/api/v2/` }),
     tagTypes: ['Pokemons'],
     endpoints: (builder) => ({
         getPokemonByName: builder.query<Pokemon, string>({
@@ -22,6 +23,7 @@ export const pokemonApi = createApi({
                     dispatch(changePokemonDataList([data]));
                 } catch {
                     dispatch(changePokemonDataList([]));
+                    dispatch(onChangeErrorValue(true));
                 }
             },
         }),
@@ -42,6 +44,7 @@ export const pokemonApi = createApi({
                     dispatch(changePokemonDataList(data.results));
                 } catch {
                     dispatch(changePokemonDataList([]));
+                    dispatch(onChangeErrorValue(true));
                 }
             },
 
@@ -68,6 +71,7 @@ export const pokemonApi = createApi({
                     dispatch(changePokemonDataList(data.results));
                 } catch {
                     dispatch(changePokemonDataList([]));
+                    dispatch(onChangeErrorValue(true));
                 }
             },
             transformResponse: (response: { pokemon: Pokemon[]; count: number }, meta, arg) => {
